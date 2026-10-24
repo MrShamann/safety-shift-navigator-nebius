@@ -1,0 +1,21 @@
+{
+  "case": {
+    "case_id": "DEMO-004",
+    "setting": "synthetic",
+    "signals": [
+      {
+        "id": "A1",
+        "observation": "Demo air-handler fan indicated an intermittent yellow status LED."
+      },
+      {
+        "id": "A2",
+        "observation": "Synthetic temperature indicator changed from 23 C to 27 C over 25 minutes."
+      },
+      {
+        "id": "A3",
+        "observation": "No maintenance record is available in this synthetic example."
+      }
+    ]
+  },
+  "provenance": "SYNTHETIC_FIXTURE_ONLY"
+}

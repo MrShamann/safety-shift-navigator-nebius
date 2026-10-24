@@ -1,0 +1,86 @@
+{
+  "agent_steps": [
+    {
+      "phase": "VALIDATE_INPUT",
+      "status": "PASS",
+      "tool": "typed synthetic case"
+    },
+    {
+      "phase": "RETRIEVE_RUNBOOK",
+      "status": "PASS",
+      "tool": "local original fictional runbook"
+    },
+    {
+      "phase": "MODEL_TRIAGE",
+      "status": "SYNTHETIC_MOCK",
+      "tool": "original deterministic rehearsal"
+    },
+    {
+      "phase": "INDEPENDENT_CRITIC",
+      "status": "PASS",
+      "tool": "full original source and action validator"
+    },
+    {
+      "phase": "HUMAN_HANDOFF",
+      "status": "REQUIRED",
+      "tool": "review only; equipment is not connected"
+    }
+  ],
+  "automatic_equipment_actions": false,
+  "external_equipment_connections": 0,
+  "human_approval_required": true,
+  "mode": "SYNTHETIC_MULTI_TOOL_REPLAY_NO_NEBIUS",
+  "model_response_hash": null,
+  "provider_api_calls": 0,
+  "provider_finish_reason": null,
+  "provider_http_status": null,
+  "provider_model": "NOT_CALLED",
+  "provider_reported_model": null,
+  "provider_token_usage": null,
+  "provider_verified": false,
+  "real_operational_impact_proven": false,
+  "review": {
+    "evidence_ids": [
+      "S:C1"
+    ],
+    "missing_evidence": "Unverified operator record: the latest operator verification entry is unavailable.",
+    "next_action": "check_manual",
+    "question_for_human": "Which original operator log can verify the missing heartbeat interval?",
+    "reason": "The synthetic signals are incomplete, and a qualified human must check the saved source journal.",
+    "runbook_ref": "R:RB-NET-03",
+    "severity": "review"
+  },
+  "source_hash_is_not_a_provider_signature": true,
+  "source_packet": {
+    "all_sources_are_synthetic": true,
+    "automatic_actions_allowed": false,
+    "case_id": "DEMO-019",
+    "local_source_hash": "bf1a21203419f4b3f21be5d08b7f81f8d041ead40ff4db26eb018c66f65e0ed3",
+    "retrieved_runbook": {
+      "checks": [
+        "Compare two fictional heartbeat records and confirm the logging window.",
+        "Check whether the last verified operator note is available.",
+        "Have a human owner decide whether further read-only diagnostics are needed."
+      ],
+      "evidence_id": "R:RB-NET-03",
+      "source_truth": "FICTIONAL_NONOPERATIONAL_GUIDANCE",
+      "title": "Network-monitoring incident handoff (fictional)"
+    },
+    "scene_id": "handoff-network",
+    "synthetic_signals": [
+      {
+        "evidence_id": "S:C1",
+        "text": "Synthetic network heartbeat shows one missing interval."
+      },
+      {
+        "evidence_id": "S:C2",
+        "text": "A separate fictional monitor reports the link as reachable."
+      },
+      {
+        "evidence_id": "S:C3",
+        "text": "The last operator verification record is unavailable."
+      }
+    ]
+  },
+  "source_truth": "ORIGINAL_SYNTHETIC_RUNBOOK_AND_SIGNALS"
+}

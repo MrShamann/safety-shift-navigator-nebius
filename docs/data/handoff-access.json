@@ -1,0 +1,86 @@
+{
+  "agent_steps": [
+    {
+      "phase": "VALIDATE_INPUT",
+      "status": "PASS",
+      "tool": "typed synthetic case"
+    },
+    {
+      "phase": "RETRIEVE_RUNBOOK",
+      "status": "PASS",
+      "tool": "local original fictional runbook"
+    },
+    {
+      "phase": "MODEL_TRIAGE",
+      "status": "SYNTHETIC_MOCK",
+      "tool": "original deterministic rehearsal"
+    },
+    {
+      "phase": "INDEPENDENT_CRITIC",
+      "status": "PASS",
+      "tool": "full original source and action validator"
+    },
+    {
+      "phase": "HUMAN_HANDOFF",
+      "status": "REQUIRED",
+      "tool": "review only; equipment is not connected"
+    }
+  ],
+  "automatic_equipment_actions": false,
+  "external_equipment_connections": 0,
+  "human_approval_required": true,
+  "mode": "SYNTHETIC_MULTI_TOOL_REPLAY_NO_NEBIUS",
+  "model_response_hash": null,
+  "provider_api_calls": 0,
+  "provider_finish_reason": null,
+  "provider_http_status": null,
+  "provider_model": "NOT_CALLED",
+  "provider_reported_model": null,
+  "provider_token_usage": null,
+  "provider_verified": false,
+  "real_operational_impact_proven": false,
+  "review": {
+    "evidence_ids": [
+      "S:B1"
+    ],
+    "missing_evidence": "Unverified access-system status record: the current status was not independently recorded.",
+    "next_action": "check_manual",
+    "question_for_human": "Which approved access journal contains the last independently verified status?",
+    "reason": "The synthetic signals are incomplete, and a qualified human must check the saved source journal.",
+    "runbook_ref": "R:RB-ACCESS-02",
+    "severity": "review"
+  },
+  "source_hash_is_not_a_provider_signature": true,
+  "source_packet": {
+    "all_sources_are_synthetic": true,
+    "automatic_actions_allowed": false,
+    "case_id": "DEMO-011",
+    "local_source_hash": "007f476b10512cc35b5ed8402de27fcb501cac21f63501f6143a9df15af4267e",
+    "retrieved_runbook": {
+      "checks": [
+        "Compare event journal timestamps for the fictional access log.",
+        "Identify whether the latest badge-system status is independently observed.",
+        "Request human security-team review before any operational change."
+      ],
+      "evidence_id": "R:RB-ACCESS-02",
+      "source_truth": "FICTIONAL_NONOPERATIONAL_GUIDANCE",
+      "title": "Access-system handoff review (fictional)"
+    },
+    "scene_id": "handoff-access",
+    "synthetic_signals": [
+      {
+        "evidence_id": "S:B1",
+        "text": "Fictional access log contains one incomplete timestamp."
+      },
+      {
+        "evidence_id": "S:B2",
+        "text": "Demo door indicator was reported amber during a shift change."
+      },
+      {
+        "evidence_id": "S:B3",
+        "text": "The current access-system status has not been independently recorded."
+      }
+    ]
+  },
+  "source_truth": "ORIGINAL_SYNTHETIC_RUNBOOK_AND_SIGNALS"
+}

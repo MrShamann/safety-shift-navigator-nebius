@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Safety Shift Navigator | Synthetic Review Console</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header><div class="brand-mark">SN</div><div class="brand"><strong>Safety Shift Navigator</strong><small>Independent Nemotron agent prototype</small></div><span class="lab">SYNTHETIC DEMO</span></header>
+  <main>
+    <div class="lead"><p class="eyebrow">NEBIUS x NVIDIA — BEST APPS &amp; AGENTS</p><h1>Five stages from evidence to <em>human-owned decisions.</em></h1><p>A source-checked incident handoff, designed around an official Nebius Nemotron adapter and never authorized to act on equipment. The official Nebius Nemotron model has passed private Playground checks; this application's direct live-API mode is still gated behind secure credential provisioning and verified no-overage approval.</p></div>
+    <section class="handoff-workbench" id="handoff-workbench" aria-label="Multi-stage shift handoff agent">
+      <div class="handoff-intro">
+        <div><span class="eyebrow">01 / THE DIFFERENTIATOR: EVIDENCE-FIRST HANDOFF</span>
+          <h2>Build a reviewable handoff, <em>not another alert.</em></h2>
+          <p>Five bounded steps: validate fictional observations, retrieve an original fictional safety runbook, request Nemotron reasoning only when authorized, independently check every citation, and ask a human to review. No equipment is connected.</p>
+        </div>
+        <div class="handoff-counter"><small>AGENT STAGES</small><strong>05</strong><span>2 source steps · up to 1 gated model call · 1 critic · 1 human</span></div>
+      </div>
+      <div class="handoff-layout">
+        <div class="handoff-controls">
+          <span class="eyebrow">CHOOSE AN INVENTED OPERATIONS SCENARIO</span>
+          <div id="handoff-scenarios" class="handoff-scenarios"><p class="muted">Loading independent runbooks…</p></div>
+          <button id="handoff-run" type="button" disabled>Prepare reviewed handoff <span>↗</span></button>
+          <label class="handoff-live"><input type="checkbox" id="handoff-live" disabled> Use real Nebius Nemotron (project key and no-overage gate)</label>
+          <p id="handoff-gate" class="handoff-gate">Official Playground evidence is separate from this application's direct API integration; both a scoped key and no-overage approval are required.</p>
+        </div>
+        <div class="handoff-output">
+          <div class="handoff-result-head"><span class="eyebrow">HANDOFF DOSSIER</span><span id="handoff-source" class="handoff-origin">NOT RUN</span></div>
+          <h3 id="handoff-title">A decision a human can inspect.</h3>
+          <div id="handoff-review" class="handoff-review"><p class="muted">Choose a fictional scenario to trace its evidence and uncertainty.</p></div>
+          <div id="handoff-trace" class="handoff-trace" aria-label="Agent tool stages"></div>
+        </div>
+      </div>
+      <div class="handoff-footer"><span id="handoff-status">Synthetic only: runbook and signals are invented. A hash is not a provider signature.</span><span>NO MACHINE WRITES · NO AUTO-DISPATCH · HUMAN APPROVAL REQUIRED</span></div>
+    </section>
+    <div class="columns">
+      <section class="card">
+        <div class="section-heading"><div><span class="eyebrow">02 / SINGLE-PASS BASELINE · INPUTS</span><h2>Synthetic observations</h2></div><span class="pill green">Validated fixture</span></div>
+        <p class="muted">These are invented observations for contest evaluation, not live sensor telemetry.</p>
+        <div id="signals" class="signals"><p class="muted">Loading synthetic observations…</p></div>
+        <div class="actions"><button id="run" type="button">Analyze synthetic case <span>→</span></button><label class="checkbox"><input id="real" type="checkbox"> Use live Nebius provider (requires secure project key and no-overage gate)</label></div>
+      </section>
+      <section class="card result">
+        <div class="section-heading"><div><span class="eyebrow">02 / SINGLE-PASS BASELINE · REVIEW</span><h2>Agent recommendation</h2></div><span id="mode" class="pill">Not evaluated</span></div>
+        <div class="metric"><span>Severity</span><strong id="severity">—</strong></div>
+        <div class="metric"><span>Next human action</span><strong id="action">—</strong></div>
+        <p id="reason" class="reason">Select the synthetic case to generate a bounded explanation.</p>
+        <div class="evidence"><span class="eyebrow">SUPPORTING SIGNAL IDS</span><strong id="ids">—</strong></div>
+        <div class="guard"> <b>Human approval always required.</b> <span>Never executes machinery actions, dispatches a technician, or authorizes deployment.</span></div>
+        <p id="status" role="status" aria-live="polite" class="status"></p>
+      </section>
+    </div>
+    <footer><span>Independent clean-room contest candidate — public rights review pending</span><span>Real Playground model evidence does not certify this application's direct API integration.</span></footer>
+  </main>
+</body>
+</html>

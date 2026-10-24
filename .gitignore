@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+*.pem
+*.p12
+*.pfx
+*.key
+.secrets/
+*secret*.txt
+*token*.txt

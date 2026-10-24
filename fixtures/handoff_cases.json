@@ -1,0 +1,82 @@
+{
+  "revision": "original-synthetic-shift-handoff-20261024",
+  "runbooks": [
+    {
+      "id": "RB-AIR-01",
+      "title": "Air-handler anomaly review (fictional)",
+      "kind": "FICTIONAL_NONOPERATIONAL_GUIDANCE",
+      "checks": [
+        "Compare the two recorded synthetic indicators against the shift journal.",
+        "Identify whether a maintenance history entry is missing or stale.",
+        "Ask a qualified human reviewer to decide what observations are needed."
+      ]
+    },
+    {
+      "id": "RB-ACCESS-02",
+      "title": "Access-system handoff review (fictional)",
+      "kind": "FICTIONAL_NONOPERATIONAL_GUIDANCE",
+      "checks": [
+        "Compare event journal timestamps for the fictional access log.",
+        "Identify whether the latest badge-system status is independently observed.",
+        "Request human security-team review before any operational change."
+      ]
+    },
+    {
+      "id": "RB-NET-03",
+      "title": "Network-monitoring incident handoff (fictional)",
+      "kind": "FICTIONAL_NONOPERATIONAL_GUIDANCE",
+      "checks": [
+        "Compare two fictional heartbeat records and confirm the logging window.",
+        "Check whether the last verified operator note is available.",
+        "Have a human owner decide whether further read-only diagnostics are needed."
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "handoff-airflow",
+      "title": "When the status light shifts",
+      "mission": "Give the next fictional building shift a sourced and cautious anomaly handoff.",
+      "runbook_id": "RB-AIR-01",
+      "case": {
+        "case_id": "DEMO-004",
+        "setting": "synthetic",
+        "signals": [
+          {"id": "A1", "observation": "Demo air-handler fan indicated an intermittent yellow status LED."},
+          {"id": "A2", "observation": "Synthetic temperature indicator changed from 23 C to 27 C over 25 minutes."},
+          {"id": "A3", "observation": "No maintenance record is available in this synthetic example."}
+        ]
+      }
+    },
+    {
+      "id": "handoff-access",
+      "title": "An incomplete access record",
+      "mission": "Carry ambiguous synthetic access-log evidence into a human-owned handoff without granting entry.",
+      "runbook_id": "RB-ACCESS-02",
+      "case": {
+        "case_id": "DEMO-011",
+        "setting": "synthetic",
+        "signals": [
+          {"id": "B1", "observation": "Fictional access log contains one incomplete timestamp."},
+          {"id": "B2", "observation": "Demo door indicator was reported amber during a shift change."},
+          {"id": "B3", "observation": "The current access-system status has not been independently recorded."}
+        ]
+      }
+    },
+    {
+      "id": "handoff-network",
+      "title": "Two heartbeat signals disagree",
+      "mission": "Produce a bounded read-only handoff from fictional operations evidence, not a network command.",
+      "runbook_id": "RB-NET-03",
+      "case": {
+        "case_id": "DEMO-019",
+        "setting": "synthetic",
+        "signals": [
+          {"id": "C1", "observation": "Synthetic network heartbeat shows one missing interval."},
+          {"id": "C2", "observation": "A separate fictional monitor reports the link as reachable."},
+          {"id": "C3", "observation": "The last operator verification record is unavailable."}
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "verification": "AUTHENTICATED_NEBIUS_REAL_APPLICATION_API_AND_INDEPENDENT_CRITIC_PASS",
+  "verified_at_utc": "2026-10-24T09:26:03.499856+00:00",
+  "endpoint": "https://api.tokenfactory.nebius.com/v1/chat/completions",
+  "provider": "Nebius Token Factory",
+  "requested_model": "nvidia/Nemotron-3_5-Lightning",
+  "returned_model": "nvidia/Nemotron-3_5-Lightning",
+  "http_status": 200,
+  "finish_reason": "stop",
+  "token_usage": {
+    "prompt_tokens": 504,
+    "completion_tokens": 1959,
+    "total_tokens": 2463
+  },
+  "actual_api_calls": 1,
+  "retry_count": 0,
+  "synthetic_case_id": "handoff-airflow",
+  "source_runbook_ref": "R:RB-AIR-01",
+  "human_approval_required": true,
+  "automatic_equipment_actions": false,
+  "model_response_sha256": "9c38632e0d75f518fd600bfa4f49e46bcf8c6e57ac367e7589c600f3a6164dc0",
+  "original_receipt_sha256": "c538db7cada81ba8d900aa1e528405bf408ee50ad2bc263a9c01a15f2ce6bb63",
+  "source_repo_commit": "98c1c409a5d6a329007f287ad07aba017c70eaeb",
+  "account_hard_cash_overage_cap": "NOT_VERIFIED",
+  "secret_or_card_included": false,
+  "contest_submission_state": "DRAFT_NOT_SUBMITTED",
+  "note": "This is a redacted local application receipt, not a provider-signed attestation; compare with private first-party account evidence and source code before relying on it."
+}

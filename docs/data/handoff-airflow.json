@@ -1,0 +1,87 @@
+{
+  "agent_steps": [
+    {
+      "phase": "VALIDATE_INPUT",
+      "status": "PASS",
+      "tool": "typed synthetic case"
+    },
+    {
+      "phase": "RETRIEVE_RUNBOOK",
+      "status": "PASS",
+      "tool": "local original fictional runbook"
+    },
+    {
+      "phase": "MODEL_TRIAGE",
+      "status": "SYNTHETIC_MOCK",
+      "tool": "original deterministic rehearsal"
+    },
+    {
+      "phase": "INDEPENDENT_CRITIC",
+      "status": "PASS",
+      "tool": "full original source and action validator"
+    },
+    {
+      "phase": "HUMAN_HANDOFF",
+      "status": "REQUIRED",
+      "tool": "review only; equipment is not connected"
+    }
+  ],
+  "automatic_equipment_actions": false,
+  "external_equipment_connections": 0,
+  "human_approval_required": true,
+  "mode": "SYNTHETIC_MULTI_TOOL_REPLAY_NO_NEBIUS",
+  "model_response_hash": null,
+  "provider_api_calls": 0,
+  "provider_finish_reason": null,
+  "provider_http_status": null,
+  "provider_model": "NOT_CALLED",
+  "provider_reported_model": null,
+  "provider_token_usage": null,
+  "provider_verified": false,
+  "real_operational_impact_proven": false,
+  "review": {
+    "evidence_ids": [
+      "S:A1",
+      "S:A3"
+    ],
+    "missing_evidence": "Unverified maintenance history record: no independent maintenance entry is available.",
+    "next_action": "check_manual",
+    "question_for_human": "Which approved maintenance log records the most recent inspection?",
+    "reason": "The synthetic signals are incomplete, and a qualified human must check the saved source journal.",
+    "runbook_ref": "R:RB-AIR-01",
+    "severity": "review"
+  },
+  "source_hash_is_not_a_provider_signature": true,
+  "source_packet": {
+    "all_sources_are_synthetic": true,
+    "automatic_actions_allowed": false,
+    "case_id": "DEMO-004",
+    "local_source_hash": "4bd0566e0ac61a719aaf64b71f4281cb125bb6d0e647dac5567d6319717a9347",
+    "retrieved_runbook": {
+      "checks": [
+        "Compare the two recorded synthetic indicators against the shift journal.",
+        "Identify whether a maintenance history entry is missing or stale.",
+        "Ask a qualified human reviewer to decide what observations are needed."
+      ],
+      "evidence_id": "R:RB-AIR-01",
+      "source_truth": "FICTIONAL_NONOPERATIONAL_GUIDANCE",
+      "title": "Air-handler anomaly review (fictional)"
+    },
+    "scene_id": "handoff-airflow",
+    "synthetic_signals": [
+      {
+        "evidence_id": "S:A1",
+        "text": "Demo air-handler fan indicated an intermittent yellow status LED."
+      },
+      {
+        "evidence_id": "S:A2",
+        "text": "Synthetic temperature indicator changed from 23 C to 27 C over 25 minutes."
+      },
+      {
+        "evidence_id": "S:A3",
+        "text": "No maintenance record is available in this synthetic example."
+      }
+    ]
+  },
+  "source_truth": "ORIGINAL_SYNTHETIC_RUNBOOK_AND_SIGNALS"
+}

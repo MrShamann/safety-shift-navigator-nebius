@@ -1,0 +1,15 @@
+{
+  "mode": "SYNTHETIC_OFFLINE_MOCK",
+  "output": {
+    "automatic_equipment_actions": false,
+    "case_id": "DEMO-004",
+    "evidence_ids": [
+      "A1"
+    ],
+    "human_approval_required": true,
+    "next_action": "check_manual",
+    "reason": "Synthetic observations require checking the local manual and supervisor review.",
+    "severity": "review"
+  },
+  "provider_verified": false
+}
