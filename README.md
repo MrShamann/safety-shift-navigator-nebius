@@ -4,7 +4,7 @@
 
 This independent hackathon candidate converts incomplete *fictional* shift observations into a structured handoff that cites the exact source and runbook IDs, identifies what is still unverified, and asks a qualified human which original record to inspect.
 
-**Status:** private release candidate only. A single authenticated request from the original local application to Nebius Token Factory **passed** the independent source critic on 2026-10-24. The app has not been publicly hosted, released under an open-source license, or finally submitted to Devpost; no award or safety performance is claimed.
+**Evidence scope:** One authenticated request from the original local application to Nebius Token Factory **passed** the independent source critic on 2026-10-24. The public-facing static replay (when hosted) is separate from this authenticated inference and never contains a provider key. No statistical accuracy, award, physical safety outcome, or final Devpost acceptance is claimed.
 
 ## The five-step agent
 
@@ -62,6 +62,6 @@ The runtime makes at most one authenticated request per handoff, with `max_token
 
 ## Public release and attribution
 
-This is a **private review export**. The separate proposed MIT license in `LICENSE.PROPOSED` is not effective until the Founder identifies the correct IP holder, approves the exact source tree and authorizes publication. The original source history, internal billing notes and private engineering ledger have deliberately not been included.
+The original source history, internal billing notes and private governance ledger are deliberately not included in this standalone contest package. **No license rights are granted by `LICENSE.PROPOSED`.** A distribution license applies only if an authorized, verified rights holder explicitly adds the matching top-level `LICENSE` and publishes the approved clean-room source tree. The prototype is not a production safety system.
 
 For review, use the redacted G1 receipt and reproducible source/fixtures. The private governance ledger, full vendor account history and API keys are intentionally excluded. No fabricated user outcomes, awards or predicted win rate.

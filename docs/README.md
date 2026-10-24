@@ -11,4 +11,4 @@ was separately verified on 2026-10-24 from the local Python source, and can be
 reproduced by a reviewer using their own authorized Token Factory account and
 the root README setup guidance.
 
-This is not deployed, licensed or submitted while public release remains blocked.
+External hosting, top-level source license and Devpost acceptance are independently verifiable release events; a static replay itself is not live provider inference.
