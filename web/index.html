@@ -10,7 +10,7 @@
 <body>
   <header><div class="brand-mark">SN</div><div class="brand"><strong>Safety Shift Navigator</strong><small>Independent Nemotron agent prototype</small></div><span class="lab">SYNTHETIC DEMO</span></header>
   <main>
-    <div class="lead"><p class="eyebrow">NEBIUS x NVIDIA — BEST APPS &amp; AGENTS</p><h1>Five stages from evidence to <em>human-owned decisions.</em></h1><p>A source-checked incident handoff, designed around an official Nebius Nemotron adapter and never authorized to act on equipment. The official Nebius Nemotron model has passed private Playground checks; this application's direct live-API mode is still gated behind secure credential provisioning and verified no-overage approval.</p></div>
+    <div class="lead"><p class="eyebrow">NEBIUS x NVIDIA — BEST APPS &amp; AGENTS</p><h1>When the evidence changes, <em>the handoff must change.</em></h1><p>An evidence-to-decision agent that flags missing sources, runs NVIDIA Nemotron through the official Nebius Token Factory when a private project key is authorized, independently checks the model, and lets a human reconcile new records. One direct model API call has been verified; the public-facing replay is explicitly synthetic and does not call Nebius.</p></div>
     <section class="handoff-workbench" id="handoff-workbench" aria-label="Multi-stage shift handoff agent">
       <div class="handoff-intro">
         <div><span class="eyebrow">01 / THE DIFFERENTIATOR: EVIDENCE-FIRST HANDOFF</span>
@@ -25,26 +25,47 @@
           <div id="handoff-scenarios" class="handoff-scenarios"><p class="muted">Loading independent runbooks…</p></div>
           <button id="handoff-run" type="button" disabled>Prepare reviewed handoff <span>↗</span></button>
           <label class="handoff-live"><input type="checkbox" id="handoff-live" disabled> Use real Nebius Nemotron (project key and no-overage gate)</label>
-          <p id="handoff-gate" class="handoff-gate">Official Playground evidence is separate from this application's direct API integration; both a scoped key and no-overage approval are required.</p>
+          <p id="handoff-gate" class="handoff-gate">One actual application-origin Nebius model call was verified; its one-use key was revoked. This interactive review uses synthetic replay only, without new model charges.</p>
         </div>
         <div class="handoff-output">
           <div class="handoff-result-head"><span class="eyebrow">HANDOFF DOSSIER</span><span id="handoff-source" class="handoff-origin">NOT RUN</span></div>
           <h3 id="handoff-title">A decision a human can inspect.</h3>
           <div id="handoff-review" class="handoff-review"><p class="muted">Choose a fictional scenario to trace its evidence and uncertainty.</p></div>
           <div id="handoff-trace" class="handoff-trace" aria-label="Agent tool stages"></div>
+          <section id="evidence-lab" class="evidence-lab" aria-label="Reconcile new evidence" hidden>
+            <p class="eyebrow">02 / JUDGE CHALLENGE · EVIDENCE DELTA</p>
+            <h4>What happens when new evidence arrives?</h4>
+            <p class="evidence-instructions">Choose a fictional archived record. The agent must distinguish relevant, conflicting, and unrelated evidence, then preserve a human decision gate. This offline reconciliation does not call Nebius.</p>
+            <div id="evidence-options" class="evidence-options" role="group" aria-label="Synthetic archive records"></div>
+            <button id="evidence-apply" type="button" disabled>Reconcile the selected record →</button>
+            <div id="evidence-delta" class="evidence-delta" aria-live="polite"></div>
+            <section id="human-review-gate" class="human-review-gate" hidden>
+              <p class="eyebrow">03 / HUMAN-OWNED DECISION · LOCAL RECEIPT</p>
+              <h4>The reviewer—not the agent—must choose the next verification action.</h4>
+              <label for="human-review-choice">Human-only follow-up (no equipment control)</label>
+              <select id="human-review-choice" aria-label="Select human follow-up action" disabled>
+                <option value="">Select a source-verification action</option>
+              </select>
+              <button type="button" id="human-review-record" disabled>Record local human decision →</button>
+              <div id="human-review-receipt" aria-live="polite"></div>
+              <p class="human-local-disclaimer">This is a fictional unauthenticated local reviewer choice, not a certified signature, staff identity, incident approval, or production audit event.</p>
+            </section>
+          </section>
         </div>
       </div>
       <div class="handoff-footer"><span id="handoff-status">Synthetic only: runbook and signals are invented. A hash is not a provider signature.</span><span>NO MACHINE WRITES · NO AUTO-DISPATCH · HUMAN APPROVAL REQUIRED</span></div>
     </section>
-    <div class="columns">
+    <details class="reference-baseline">
+      <summary>Optional reference: original single-pass airflow baseline (separate from the selected handoff)</summary>
+      <div class="columns">
       <section class="card">
-        <div class="section-heading"><div><span class="eyebrow">02 / SINGLE-PASS BASELINE · INPUTS</span><h2>Synthetic observations</h2></div><span class="pill green">Validated fixture</span></div>
+        <div class="section-heading"><div><span class="eyebrow">03 / ORIGINAL ONE-PASS BASELINE · INPUTS</span><h2>Synthetic observations</h2></div><span class="pill green">Validated fixture</span></div>
         <p class="muted">These are invented observations for contest evaluation, not live sensor telemetry.</p>
         <div id="signals" class="signals"><p class="muted">Loading synthetic observations…</p></div>
         <div class="actions"><button id="run" type="button">Analyze synthetic case <span>→</span></button><label class="checkbox"><input id="real" type="checkbox"> Use live Nebius provider (requires secure project key and no-overage gate)</label></div>
       </section>
       <section class="card result">
-        <div class="section-heading"><div><span class="eyebrow">02 / SINGLE-PASS BASELINE · REVIEW</span><h2>Agent recommendation</h2></div><span id="mode" class="pill">Not evaluated</span></div>
+        <div class="section-heading"><div><span class="eyebrow">03 / ORIGINAL ONE-PASS BASELINE · REVIEW</span><h2>Agent recommendation</h2></div><span id="mode" class="pill">Not evaluated</span></div>
         <div class="metric"><span>Severity</span><strong id="severity">—</strong></div>
         <div class="metric"><span>Next human action</span><strong id="action">—</strong></div>
         <p id="reason" class="reason">Select the synthetic case to generate a bounded explanation.</p>
@@ -52,8 +73,9 @@
         <div class="guard"> <b>Human approval always required.</b> <span>Never executes machinery actions, dispatches a technician, or authorizes deployment.</span></div>
         <p id="status" role="status" aria-live="polite" class="status"></p>
       </section>
-    </div>
-    <footer><span>Independent clean-room contest candidate — original synthetic scenarios</span><span>One genuine authenticated app-to-Nebius call passed the independent Critic; public offline replay is labeled separately.</span></footer>
+      </div>
+    </details>
+    <footer><span>Independent clean-room contest candidate — public rights review pending</span><span>One genuine authenticated app-to-Nebius call passed the independent Critic; public offline replay is labeled separately.</span></footer>
   </main>
 </body>
 </html>

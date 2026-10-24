@@ -1,0 +1,74 @@
+{
+  "archive_truth": "ORIGINAL_SYNTHETIC_UNATTESTED",
+  "attached_record": {
+    "archive_sha256": "8ebddecd2bffcc4adba4fb46bbb66d10143900c1ef74d68c644047567fc9048b",
+    "evidence_id": "F:NET-U3",
+    "excerpt": "A fictional printer paper-jam log is stored in the same operations archive but has no relation to network heartbeat intervals.",
+    "id": "NETWORK-UNRELATED-03",
+    "signed_provider_proof": false,
+    "title": "Unrelated printer event log"
+  },
+  "automatic_equipment_actions": false,
+  "decision_delta": {
+    "after": "UNRELATED_SOURCE_STILL_MISSING",
+    "automatic_closure": false,
+    "before": "MISSING_OR_UNVERIFIED_RECORD",
+    "comparison_basis": {
+      "followup_asset": "PRINTER",
+      "followup_reported_signal": "unknown",
+      "method": "DETERMINISTIC_SYNTHETIC_ASSET_AND_SIGNAL_CONTRAST",
+      "model_inference": false,
+      "original_asset": "NETWORK_MONITOR",
+      "original_reported_signal": "missing"
+    },
+    "explanation": "This fictional excerpt concerns an unrelated system. The original evidence gap remains open and no determination is made.",
+    "new_evidence_id": "F:NET-U3",
+    "next_human_action": "request_relevant_record",
+    "next_human_question": "Which original network operator record can establish the missing heartbeat observation?",
+    "original_source_id_count": 2,
+    "relationship": "IRRELEVANT",
+    "safety_action_authorized": false,
+    "unresolved": "A printer entry cannot verify the missing network operator history."
+  },
+  "external_equipment_connections": 0,
+  "first_handoff_source_hash": "bf1a21203419f4b3f21be5d08b7f81f8d041ead40ff4db26eb018c66f65e0ed3",
+  "human_approval_required": true,
+  "mode": "SYNTHETIC_EVIDENCE_RECONCILIATION_NO_NEBIUS",
+  "model_called_for_followup": false,
+  "original_review": {
+    "evidence_ids": [
+      "S:C1",
+      "S:C3"
+    ],
+    "missing_evidence": "Unverified operator record: the latest operator verification entry is unavailable.",
+    "next_action": "check_manual",
+    "question_for_human": "Which original operator log can verify the missing heartbeat interval?",
+    "reason": "The synthetic network heartbeat and operator record remain incomplete; a qualified human must inspect the original journal.",
+    "runbook_ref": "R:RB-NET-03",
+    "severity": "review"
+  },
+  "original_review_kept_intact": true,
+  "provider_api_calls": 0,
+  "provider_verified": false,
+  "real_operational_impact_proven": false,
+  "reconciliation_steps": [
+    {
+      "phase": "RETRIEVE_FICTIONAL_ARCHIVE",
+      "status": "PASS"
+    },
+    {
+      "phase": "VERIFY_SCENARIO_SOURCE_LINK",
+      "status": "PASS"
+    },
+    {
+      "phase": "COMPARE_WITH_ORIGINAL_PACKET",
+      "status": "IRRELEVANT"
+    },
+    {
+      "phase": "REQUEST_HUMAN_SOURCE_VERIFICATION",
+      "status": "REQUIRED"
+    }
+  ],
+  "scenario_id": "handoff-network",
+  "source_hash_is_not_a_provider_signature": true
+}

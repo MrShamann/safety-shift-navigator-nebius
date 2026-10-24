@@ -30,7 +30,7 @@ class HandoffAgentTests(unittest.TestCase):
             "evidence_ids":["S:A1","S:A3"],
             "runbook_ref":"R:RB-AIR-01",
             "missing_evidence":"A maintenance history entry is unavailable.",
-            "question_for_human":"Which approved source log should a qualified reviewer inspect?",
+            "question_for_human":"Which approved maintenance source log should a qualified reviewer inspect?",
             "next_action":"check_manual",
         }
 

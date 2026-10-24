@@ -25,6 +25,35 @@ RUNBOOK_FILE=ROOT/"fixtures"/"handoff_cases.json"
 MODEL_ACTIONS={"observe","check_manual","notify_supervisor","request_technician"}
 SEVERITY={"info","review","urgent"}
 SOURCE_TRUTH="ORIGINAL_SYNTHETIC_RUNBOOK_AND_SIGNALS"
+CRITIC_VERSION="source-bound-v2"
+# A case-specific critic must reject generic safe-sounding responses that cite
+# arbitrary IDs while failing to identify the record actually missing.
+SCENE_ANCHORS={
+    "handoff-airflow": {
+        "missing":("maintenance",),
+        "question":("maintenance",),
+        "reason":("fan","air","temperature","maintenance"),
+        "unverified_signal":"S:A3",
+    },
+    "handoff-access": {
+        "missing":("access","reader","badge"),
+        "question":("access","reader","badge"),
+        "reason":("access","badge","door","timestamp"),
+        "unverified_signal":"S:B3",
+    },
+    "handoff-network": {
+        "missing":("operator","heartbeat","interval"),
+        "question":("operator","heartbeat","interval"),
+        "reason":("network","heartbeat","monitor","link","interval"),
+        "unverified_signal":"S:C3",
+    },
+}
+UNSUPPORTED_UNVERIFIED_CLAIMS=(
+    "technician inspected","repair completed","safe to continue",
+    "all systems nominal","no further action","approved by technician",
+    "access granted","operator confirmed","service restored",
+    "fault resolved","system healthy","inspection passed",
+)
 FORBIDDEN_NARRATIVE=(
     "restart","reset","disable","override","bypass","shut down",
     "turn off","open the valve","close the valve","repair the machine",
@@ -168,6 +197,24 @@ def _review_model_text(packet: dict, text: str)->dict:
                       r"observation|verification|inspection)\b",
                       value["missing_evidence"],re.IGNORECASE)):
         raise InputError("model omitted specific unverified source")
+    anchors=SCENE_ANCHORS.get(packet.get("scene_id"))
+    if not anchors:
+        raise InputError("unknown original scene for independent critic")
+    missing_lower=value["missing_evidence"].lower()
+    question_lower=value["question_for_human"].lower()
+    reason_lower=value["reason"].lower()
+    if anchors["unverified_signal"] not in ids:
+        raise InputError("missing source must be explicitly cited")
+    for text_field,anchor_words in (
+        (missing_lower,anchors["missing"]),
+        (question_lower,anchors["question"]),
+        (reason_lower,anchors["reason"]),
+    ):
+        if not any(word in text_field for word in anchor_words):
+            raise InputError("generic narrative lacks scenario-specific evidence")
+    joined=" ".join((reason_lower,missing_lower,question_lower))
+    if any(phrase in joined for phrase in UNSUPPORTED_UNVERIFIED_CLAIMS):
+        raise InputError("unverified source falsely presented as established fact")
     source_text=" ".join(s["text"] for s in packet["synthetic_signals"])
     source_text+=" "+" ".join(packet["retrieved_runbook"]["checks"])
     permitted_numbers=set(re.findall(r"\b[0-9]+\b",source_text))
@@ -218,6 +265,7 @@ def _compose(packet:dict,review:dict,mode:str,live:bool,model_receipt:str="",
         "provider_token_usage":provider_receipt["usage"] if live and provider_receipt else None,
         "model_response_hash":model_receipt if live else None,
         "source_hash_is_not_a_provider_signature":True,
+        "critic_policy_version":CRITIC_VERSION,
         "real_operational_impact_proven":False,
     }
     return result
@@ -226,10 +274,12 @@ def _compose(packet:dict,review:dict,mode:str,live:bool,model_receipt:str="",
 def offline_handoff(scenario_id: str)->dict:
     packet=source_packet(scenario_id)
     first=packet["synthetic_signals"][0]
-    unavailable=next((x for x in packet["synthetic_signals"] if
-        any(w in x["text"].lower() for w in (
-          "missing","unavailable","not independently","not been independently",
-          "incomplete","not recorded"))),packet["synthetic_signals"][-1])
+    # Select the actual unverified record from the original typed source packet.
+    missing_id=SCENE_ANCHORS[scenario_id]["unverified_signal"]
+    unavailable=next(
+        row for row in packet["synthetic_signals"]
+        if row["evidence_id"]==missing_id
+    )
     source_questions={
         "handoff-airflow":(
             "Unverified maintenance history record: no independent maintenance entry is available.",
@@ -245,9 +295,14 @@ def offline_handoff(scenario_id: str)->dict:
         ),
     }
     missing,question=source_questions[scenario_id]
+    scene_reasons={
+        "handoff-airflow":"The synthetic fan indicator and maintenance record are incomplete; a qualified human must inspect the original journal.",
+        "handoff-access":"The synthetic access reader status and event timestamp remain incomplete; a qualified human must inspect the original journal.",
+        "handoff-network":"The synthetic network heartbeat and operator record remain incomplete; a qualified human must inspect the original journal.",
+    }
     note={
         "severity":"review",
-        "reason":"The synthetic signals are incomplete, and a qualified human must check the saved source journal.",
+        "reason":scene_reasons[scenario_id],
         "evidence_ids":[first["evidence_id"],unavailable["evidence_id"]],
         "runbook_ref":packet["retrieved_runbook"]["evidence_id"],
         "missing_evidence":missing,

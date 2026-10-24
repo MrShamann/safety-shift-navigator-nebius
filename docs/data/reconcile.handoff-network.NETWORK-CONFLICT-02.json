@@ -1,0 +1,74 @@
+{
+  "archive_truth": "ORIGINAL_SYNTHETIC_UNATTESTED",
+  "attached_record": {
+    "archive_sha256": "def8418a06d9b990b49134fef999c69f8cd6d0b7219d71ddfddcdc949289319c",
+    "evidence_id": "F:NET-C2",
+    "excerpt": "A second fictional heartbeat index reports a complete interval sequence within the same window where the original monitor shows a missing interval.",
+    "id": "NETWORK-CONFLICT-02",
+    "signed_provider_proof": false,
+    "title": "Conflicting heartbeat index"
+  },
+  "automatic_equipment_actions": false,
+  "decision_delta": {
+    "after": "SOURCE_CONFLICT_HUMAN_ESCALATION",
+    "automatic_closure": false,
+    "before": "MISSING_OR_UNVERIFIED_RECORD",
+    "comparison_basis": {
+      "followup_asset": "NETWORK_MONITOR",
+      "followup_reported_signal": "complete",
+      "method": "DETERMINISTIC_SYNTHETIC_ASSET_AND_SIGNAL_CONTRAST",
+      "model_inference": false,
+      "original_asset": "NETWORK_MONITOR",
+      "original_reported_signal": "missing"
+    },
+    "explanation": "Two invented source records contradict one another. A human must reconcile the underlying records before changing the handoff.",
+    "new_evidence_id": "F:NET-C2",
+    "next_human_action": "notify_supervisor",
+    "next_human_question": "Which original timestamped heartbeat history can reconcile the two monitors?",
+    "original_source_id_count": 2,
+    "relationship": "CONFLICTING",
+    "safety_action_authorized": false,
+    "unresolved": "The two synthetic monitor sources disagree about the interval; neither proves a root cause."
+  },
+  "external_equipment_connections": 0,
+  "first_handoff_source_hash": "bf1a21203419f4b3f21be5d08b7f81f8d041ead40ff4db26eb018c66f65e0ed3",
+  "human_approval_required": true,
+  "mode": "SYNTHETIC_EVIDENCE_RECONCILIATION_NO_NEBIUS",
+  "model_called_for_followup": false,
+  "original_review": {
+    "evidence_ids": [
+      "S:C1",
+      "S:C3"
+    ],
+    "missing_evidence": "Unverified operator record: the latest operator verification entry is unavailable.",
+    "next_action": "check_manual",
+    "question_for_human": "Which original operator log can verify the missing heartbeat interval?",
+    "reason": "The synthetic network heartbeat and operator record remain incomplete; a qualified human must inspect the original journal.",
+    "runbook_ref": "R:RB-NET-03",
+    "severity": "review"
+  },
+  "original_review_kept_intact": true,
+  "provider_api_calls": 0,
+  "provider_verified": false,
+  "real_operational_impact_proven": false,
+  "reconciliation_steps": [
+    {
+      "phase": "RETRIEVE_FICTIONAL_ARCHIVE",
+      "status": "PASS"
+    },
+    {
+      "phase": "VERIFY_SCENARIO_SOURCE_LINK",
+      "status": "PASS"
+    },
+    {
+      "phase": "COMPARE_WITH_ORIGINAL_PACKET",
+      "status": "CONFLICTING"
+    },
+    {
+      "phase": "REQUEST_HUMAN_SOURCE_VERIFICATION",
+      "status": "REQUIRED"
+    }
+  ],
+  "scenario_id": "handoff-network",
+  "source_hash_is_not_a_provider_signature": true
+}

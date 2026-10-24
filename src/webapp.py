@@ -10,6 +10,7 @@ from pathlib import Path
 
 from .safety_shift import InputError, fixture, live_triage, offline_triage, validate_case
 from .handoff_agent import handoff_catalogue, live_handoff, offline_handoff
+from .evidence_loop import evidence_options, reconcile_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = {
@@ -88,7 +89,8 @@ class Handler(BaseHTTPRequestHandler):
         if not self._allowed_host():
             self._json(403,{"error":"HOST_DENIED"})
             return
-        if self.path not in {"/api/triage","/api/handoff"}:
+        if self.path not in {"/api/triage","/api/handoff",
+                             "/api/evidence-options","/api/reconcile"}:
             self._json(404, {"error": "NOT_FOUND"})
             return
         origin = self.headers.get("Origin", "")
@@ -108,6 +110,16 @@ class Handler(BaseHTTPRequestHandler):
             inp = json.loads(body)
             if not isinstance(inp, dict):
                 raise InputError("request object required")
+            if self.path=="/api/evidence-options":
+                if set(inp)!={"scenario_id"}:
+                    raise InputError("unknown evidence-list fields")
+                self._json(200,evidence_options(inp["scenario_id"]))
+                return
+            if self.path=="/api/reconcile":
+                if set(inp)!={"scenario_id","record_id"}:
+                    raise InputError("unknown reconciliation fields")
+                self._json(200,reconcile_evidence(inp["scenario_id"],inp["record_id"]))
+                return
             if self.path=="/api/handoff":
                 if set(inp)!={"mode","scenario_id"}:
                     raise InputError("handoff fields must be fixed")

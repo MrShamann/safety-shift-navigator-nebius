@@ -27,6 +27,7 @@
     }
   ],
   "automatic_equipment_actions": false,
+  "critic_policy_version": "source-bound-v2",
   "external_equipment_connections": 0,
   "human_approval_required": true,
   "mode": "SYNTHETIC_MULTI_TOOL_REPLAY_NO_NEBIUS",
@@ -41,44 +42,45 @@
   "real_operational_impact_proven": false,
   "review": {
     "evidence_ids": [
-      "S:B1"
+      "S:C1",
+      "S:C3"
     ],
-    "missing_evidence": "Unverified access-system status record: the current status was not independently recorded.",
+    "missing_evidence": "Unverified operator record: the latest operator verification entry is unavailable.",
     "next_action": "check_manual",
-    "question_for_human": "Which approved access journal contains the last independently verified status?",
-    "reason": "The synthetic signals are incomplete, and a qualified human must check the saved source journal.",
-    "runbook_ref": "R:RB-ACCESS-02",
+    "question_for_human": "Which original operator log can verify the missing heartbeat interval?",
+    "reason": "The synthetic network heartbeat and operator record remain incomplete; a qualified human must inspect the original journal.",
+    "runbook_ref": "R:RB-NET-03",
     "severity": "review"
   },
   "source_hash_is_not_a_provider_signature": true,
   "source_packet": {
     "all_sources_are_synthetic": true,
     "automatic_actions_allowed": false,
-    "case_id": "DEMO-011",
-    "local_source_hash": "007f476b10512cc35b5ed8402de27fcb501cac21f63501f6143a9df15af4267e",
+    "case_id": "DEMO-019",
+    "local_source_hash": "bf1a21203419f4b3f21be5d08b7f81f8d041ead40ff4db26eb018c66f65e0ed3",
     "retrieved_runbook": {
       "checks": [
-        "Compare event journal timestamps for the fictional access log.",
-        "Identify whether the latest badge-system status is independently observed.",
-        "Request human security-team review before any operational change."
+        "Compare two fictional heartbeat records and confirm the logging window.",
+        "Check whether the last verified operator note is available.",
+        "Have a human owner decide whether further read-only diagnostics are needed."
       ],
-      "evidence_id": "R:RB-ACCESS-02",
+      "evidence_id": "R:RB-NET-03",
       "source_truth": "FICTIONAL_NONOPERATIONAL_GUIDANCE",
-      "title": "Access-system handoff review (fictional)"
+      "title": "Network-monitoring incident handoff (fictional)"
     },
-    "scene_id": "handoff-access",
+    "scene_id": "handoff-network",
     "synthetic_signals": [
       {
-        "evidence_id": "S:B1",
-        "text": "Fictional access log contains one incomplete timestamp."
+        "evidence_id": "S:C1",
+        "text": "Synthetic network heartbeat shows one missing interval."
       },
       {
-        "evidence_id": "S:B2",
-        "text": "Demo door indicator was reported amber during a shift change."
+        "evidence_id": "S:C2",
+        "text": "A separate fictional monitor reports the link as reachable."
       },
       {
-        "evidence_id": "S:B3",
-        "text": "The current access-system status has not been independently recorded."
+        "evidence_id": "S:C3",
+        "text": "The last operator verification record is unavailable."
       }
     ]
   },

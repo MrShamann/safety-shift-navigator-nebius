@@ -1,0 +1,74 @@
+{
+  "archive_truth": "ORIGINAL_SYNTHETIC_UNATTESTED",
+  "attached_record": {
+    "archive_sha256": "427090d88241f0866f20d1d8ae74b3d71483a1a9d41fea7128a195133ab6578b",
+    "evidence_id": "F:ACC-U3",
+    "excerpt": "A fictional parking-card inventory lists spare badges for another building rather than any event from the affected access reader.",
+    "id": "ACCESS-UNRELATED-03",
+    "signed_provider_proof": false,
+    "title": "Unrelated parking card inventory"
+  },
+  "automatic_equipment_actions": false,
+  "decision_delta": {
+    "after": "UNRELATED_SOURCE_STILL_MISSING",
+    "automatic_closure": false,
+    "before": "MISSING_OR_UNVERIFIED_RECORD",
+    "comparison_basis": {
+      "followup_asset": "PARKING_INVENTORY",
+      "followup_reported_signal": "unknown",
+      "method": "DETERMINISTIC_SYNTHETIC_ASSET_AND_SIGNAL_CONTRAST",
+      "model_inference": false,
+      "original_asset": "ACCESS_READER",
+      "original_reported_signal": "amber"
+    },
+    "explanation": "This fictional excerpt concerns an unrelated system. The original evidence gap remains open and no determination is made.",
+    "new_evidence_id": "F:ACC-U3",
+    "next_human_action": "request_relevant_record",
+    "next_human_question": "Which independently recorded access journal entry establishes the affected reader status?",
+    "original_source_id_count": 2,
+    "relationship": "IRRELEVANT",
+    "safety_action_authorized": false,
+    "unresolved": "The inventory is not a status record and does not fill the original access-journal gap."
+  },
+  "external_equipment_connections": 0,
+  "first_handoff_source_hash": "007f476b10512cc35b5ed8402de27fcb501cac21f63501f6143a9df15af4267e",
+  "human_approval_required": true,
+  "mode": "SYNTHETIC_EVIDENCE_RECONCILIATION_NO_NEBIUS",
+  "model_called_for_followup": false,
+  "original_review": {
+    "evidence_ids": [
+      "S:B1",
+      "S:B3"
+    ],
+    "missing_evidence": "Unverified access-system status record: the current status was not independently recorded.",
+    "next_action": "check_manual",
+    "question_for_human": "Which approved access journal contains the last independently verified status?",
+    "reason": "The synthetic access reader status and event timestamp remain incomplete; a qualified human must inspect the original journal.",
+    "runbook_ref": "R:RB-ACCESS-02",
+    "severity": "review"
+  },
+  "original_review_kept_intact": true,
+  "provider_api_calls": 0,
+  "provider_verified": false,
+  "real_operational_impact_proven": false,
+  "reconciliation_steps": [
+    {
+      "phase": "RETRIEVE_FICTIONAL_ARCHIVE",
+      "status": "PASS"
+    },
+    {
+      "phase": "VERIFY_SCENARIO_SOURCE_LINK",
+      "status": "PASS"
+    },
+    {
+      "phase": "COMPARE_WITH_ORIGINAL_PACKET",
+      "status": "IRRELEVANT"
+    },
+    {
+      "phase": "REQUEST_HUMAN_SOURCE_VERIFICATION",
+      "status": "REQUIRED"
+    }
+  ],
+  "scenario_id": "handoff-access",
+  "source_hash_is_not_a_provider_signature": true
+}

@@ -1,0 +1,114 @@
+{
+  "revision": "independent-evidence-delta-v1-20261024",
+  "archive_kind": "ORIGINAL_SYNTHETIC_UNATTESTED",
+  "records": [
+    {
+      "id": "AIR-JOURNAL-01",
+      "scenario_id": "handoff-airflow",
+      "title": "Unsigned maintenance journal excerpt",
+      "evidence_id": "F:AIR-J1",
+      "relationship": "CORROBORATING",
+      "excerpt": "A fictional maintenance journal lists an earlier inspection for an air-handler with an omitted equipment identifier and no signed reviewer.",
+      "uncertainty": "The unsigned journal is not independently linked to the affected air-handler, so maintenance history remains unverified.",
+      "question_for_human": "Which original signed maintenance record links the journal entry to the affected air-handler?",
+      "asset_class": "AIR_HANDLER",
+      "reported_signal": "unknown"
+    },
+    {
+      "id": "AIR-CONFLICT-02",
+      "scenario_id": "handoff-airflow",
+      "title": "Conflicting indicator board",
+      "evidence_id": "F:AIR-C2",
+      "relationship": "CONFLICTING",
+      "excerpt": "A second fictional shift indicator board lists green during the same window when the original record reports a yellow fan indicator.",
+      "uncertainty": "The two indicator sources disagree and their observation times have not been independently reconciled.",
+      "question_for_human": "Which original equipment status log can resolve the green versus yellow discrepancy?",
+      "asset_class": "AIR_HANDLER",
+      "reported_signal": "green"
+    },
+    {
+      "id": "AIR-UNRELATED-03",
+      "scenario_id": "handoff-airflow",
+      "title": "Unrelated lobby HVAC record",
+      "evidence_id": "F:AIR-U3",
+      "relationship": "IRRELEVANT",
+      "excerpt": "A fictional lobby ventilation inspection report refers to a different unit and a different area than the handoff air-handler.",
+      "uncertainty": "A record for a different unit cannot establish the missing inspection history of the affected air-handler.",
+      "question_for_human": "Which maintenance journal contains an identifiable entry for the affected air-handler?",
+      "asset_class": "LOBBY_HVAC",
+      "reported_signal": "unknown"
+    },
+    {
+      "id": "ACCESS-JOURNAL-01",
+      "scenario_id": "handoff-access",
+      "title": "Unsigned access journal excerpt",
+      "evidence_id": "F:ACC-J1",
+      "relationship": "CORROBORATING",
+      "excerpt": "A fictional access journal export contains an amber indicator entry but omits the reader identifier and reviewer signature.",
+      "uncertainty": "Without its reader ID and signoff, the journal cannot independently establish the affected access-system status.",
+      "question_for_human": "Which original signed access journal identifies the reader and independently confirms its status?",
+      "asset_class": "ACCESS_READER",
+      "reported_signal": "amber"
+    },
+    {
+      "id": "ACCESS-CONFLICT-02",
+      "scenario_id": "handoff-access",
+      "title": "Conflicting reader snapshot",
+      "evidence_id": "F:ACC-C2",
+      "relationship": "CONFLICTING",
+      "excerpt": "A second fictional reader display reports a green status in the same review window when the handoff describes an amber indicator.",
+      "uncertainty": "The reader observations contradict each other and the current access-system status is still unresolved.",
+      "question_for_human": "Which original reader-status record can reconcile the contradictory observations?",
+      "asset_class": "ACCESS_READER",
+      "reported_signal": "green"
+    },
+    {
+      "id": "ACCESS-UNRELATED-03",
+      "scenario_id": "handoff-access",
+      "title": "Unrelated parking card inventory",
+      "evidence_id": "F:ACC-U3",
+      "relationship": "IRRELEVANT",
+      "excerpt": "A fictional parking-card inventory lists spare badges for another building rather than any event from the affected access reader.",
+      "uncertainty": "The inventory is not a status record and does not fill the original access-journal gap.",
+      "question_for_human": "Which independently recorded access journal entry establishes the affected reader status?",
+      "asset_class": "PARKING_INVENTORY",
+      "reported_signal": "unknown"
+    },
+    {
+      "id": "NETWORK-JOURNAL-01",
+      "scenario_id": "handoff-network",
+      "title": "Partial operator verification note",
+      "evidence_id": "F:NET-J1",
+      "relationship": "CORROBORATING",
+      "excerpt": "A fictional operator worksheet notes one heartbeat gap but does not show a verified clock offset against the original monitor.",
+      "uncertainty": "The worksheet supports the existence of a reported gap, but the independent timing verification remains missing.",
+      "question_for_human": "Which original operator log verifies the gap and the synchronized monitoring window?",
+      "asset_class": "NETWORK_MONITOR",
+      "reported_signal": "missing"
+    },
+    {
+      "id": "NETWORK-CONFLICT-02",
+      "scenario_id": "handoff-network",
+      "title": "Conflicting heartbeat index",
+      "evidence_id": "F:NET-C2",
+      "relationship": "CONFLICTING",
+      "excerpt": "A second fictional heartbeat index reports a complete interval sequence within the same window where the original monitor shows a missing interval.",
+      "uncertainty": "The two synthetic monitor sources disagree about the interval; neither proves a root cause.",
+      "question_for_human": "Which original timestamped heartbeat history can reconcile the two monitors?",
+      "asset_class": "NETWORK_MONITOR",
+      "reported_signal": "complete"
+    },
+    {
+      "id": "NETWORK-UNRELATED-03",
+      "scenario_id": "handoff-network",
+      "title": "Unrelated printer event log",
+      "evidence_id": "F:NET-U3",
+      "relationship": "IRRELEVANT",
+      "excerpt": "A fictional printer paper-jam log is stored in the same operations archive but has no relation to network heartbeat intervals.",
+      "uncertainty": "A printer entry cannot verify the missing network operator history.",
+      "question_for_human": "Which original network operator record can establish the missing heartbeat observation?",
+      "asset_class": "PRINTER",
+      "reported_signal": "unknown"
+    }
+  ]
+}

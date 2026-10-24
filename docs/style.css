@@ -52,3 +52,54 @@
  .handoff-result-head{flex-wrap:wrap}
  .handoff-footer{padding:14px 17px}
 }
+
+/* Evidence-delta: a real second interaction that cannot silently close an incident. */
+.evidence-lab{margin-top:20px;padding:18px 17px;border:1px solid #527b72;border-radius:12px;background:#0c2730}
+.evidence-lab[hidden]{display:none}
+.evidence-lab h4{font-size:18px;letter-spacing:-.02em;margin:9px 0 7px;color:#f0f8f6}
+.evidence-instructions{font-size:12px;color:#c8dbde;line-height:1.55;margin-bottom:14px}
+.evidence-options{display:grid;gap:8px}
+.evidence-choice{display:flex;flex-direction:column;gap:5px;align-items:flex-start;min-width:0;
+padding:11px 13px;background:#132d38;border:1px solid #486975;border-radius:9px;
+white-space:normal;text-align:left;color:#f0f7f7}
+.evidence-choice strong{font-size:12px}
+.evidence-choice small{font-size:11px;color:#b1d2d3;line-height:1.5}
+.evidence-choice:hover,.evidence-choice[aria-pressed=true]{background:#245047;border-color:#b0eed0}
+#evidence-apply{margin:12px 0 2px;width:100%;font-size:12px}
+#evidence-apply:disabled{opacity:.45}
+.evidence-delta{margin-top:12px;display:grid;gap:8px}
+.evidence-delta-title{font-size:12px;letter-spacing:.05em;color:#b6f1d1}
+.evidence-comparison{display:grid;gap:8px;grid-template-columns:1fr 1fr}
+.evidence-proof-line{color:#d1e3df;font-size:11px;line-height:1.55;
+background:#17363d;padding:10px;border-radius:8px;overflow-wrap:anywhere;margin:0}
+.evidence-proof-line strong{color:#91ddc4}
+.evidence-delta[data-state="SOURCE_CONFLICT_HUMAN_ESCALATION"] .evidence-delta-title{color:#ffd29b}
+.evidence-delta[data-state="SOURCE_CONFLICT_HUMAN_ESCALATION"] .evidence-comparison .evidence-proof-line:last-child{border:1px solid #ba8451}
+@media(max-width:580px){
+ .evidence-lab{padding:15px 12px;margin-top:18px}
+ .evidence-comparison{grid-template-columns:1fr}
+ .evidence-lab h4{font-size:16px}
+}
+
+.reference-baseline{margin:18px 0 8px;border:1px solid #2e5860;border-radius:10px;
+background:#0f2935;overflow:hidden}
+.reference-baseline summary{padding:17px 22px;color:#bbd4d3;font-size:12px;
+cursor:pointer;line-height:1.5;font-weight:600}
+.reference-baseline summary:hover{color:#a1f0d4}
+.reference-baseline .columns{margin:0 14px 15px}
+@media(max-width:580px){
+ .reference-baseline summary{padding:14px;font-size:11px}
+ .reference-baseline .columns{margin:0 8px 12px}
+}
+
+.human-review-gate{margin-top:16px;padding:16px;background:#163a38;border:1px solid #5c9585;border-radius:10px}
+.human-review-gate[hidden]{display:none}
+.human-review-gate h4{font-size:15px;line-height:1.45;color:#e9fff3;margin:8px 0 12px}
+.human-review-gate label{display:block;color:#bad7cf;font-size:12px;margin:7px 0}
+.human-review-gate select{box-sizing:border-box;width:100%;max-width:100%;
+ border:1px solid #8cc5ab;background:#08272b;color:#f0fbf5;
+ padding:12px;border-radius:8px;font-size:12px}
+.human-review-gate #human-review-record{width:100%;margin-top:10px;font-size:12px}
+.human-review-gate #human-review-record:disabled{opacity:.48}
+#human-review-receipt{display:grid;gap:7px;margin-top:12px}
+.human-local-disclaimer{font-size:10px;line-height:1.5;color:#a7bfba;margin:10px 0 0}

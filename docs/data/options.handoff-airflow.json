@@ -1,0 +1,27 @@
+{
+  "archive_truth": "ORIGINAL_SYNTHETIC_UNATTESTED",
+  "mode": "SYNTHETIC_EVIDENCE_RECONCILIATION_NO_NEBIUS",
+  "notice": "Fictional archive excerpts; relevance is decided after selection.",
+  "provider_api_calls": 0,
+  "scenario_id": "handoff-airflow",
+  "source_options": [
+    {
+      "evidence_id": "F:AIR-J1",
+      "excerpt": "A fictional maintenance journal lists an earlier inspection for an air-handler with an omitted equipment identifier and no signed reviewer.",
+      "id": "AIR-JOURNAL-01",
+      "title": "Unsigned maintenance journal excerpt"
+    },
+    {
+      "evidence_id": "F:AIR-C2",
+      "excerpt": "A second fictional shift indicator board lists green during the same window when the original record reports a yellow fan indicator.",
+      "id": "AIR-CONFLICT-02",
+      "title": "Conflicting indicator board"
+    },
+    {
+      "evidence_id": "F:AIR-U3",
+      "excerpt": "A fictional lobby ventilation inspection report refers to a different unit and a different area than the handoff air-handler.",
+      "id": "AIR-UNRELATED-03",
+      "title": "Unrelated lobby HVAC record"
+    }
+  ]
+}

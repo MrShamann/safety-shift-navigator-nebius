@@ -1,67 +1,57 @@
 # Safety Shift Navigator
 
-**A source-checked, human-owned operations handoff prototype powered by NVIDIA Nemotron on Nebius Token Factory.**
+**An evidence-to-decision handoff agent using NVIDIA Nemotron via Nebius Token Factory, with independent source checking and human-owned review.**
 
-This independent hackathon candidate converts incomplete *fictional* shift observations into a structured handoff that cites the exact source and runbook IDs, identifies what is still unverified, and asks a qualified human which original record to inspect.
+**Track:** Nebius × NVIDIA Global AI Hackathon / Best Apps and Agents
+**Stage:** Private clean-room submission candidate, not public, licensed, or finally submitted.
 
-**Evidence scope:** One authenticated request from the original local application to Nebius Token Factory **passed** the independent source critic on 2026-10-24. The public-facing static replay (when hosted) is separate from this authenticated inference and never contains a provider key. No statistical accuracy, award, physical safety outcome, or final Devpost acceptance is claimed.
+## Why this exists
 
-## The five-step agent
+A shift handoff should not merely sound confident; it must tell the incoming reviewer which original record is missing and what to verify next. UK HSE guidance identifies weak shift-handover communication and incomplete information as a serious human-factors risk: https://www.hse.gov.uk/humanfactors/topics/shift-handover.htm. The guide does not endorse or validate this prototype.
 
-1. **Source validation:** rejects malformed, changed, or instruction-bearing fictional observations.
-2. **Runbook retrieval:** attaches a separately written fictional runbook with a distinct ID.
-3. **Nemotron model:** an optional authenticated call to `nvidia/Nemotron-3_5-Lightning` at `https://api.tokenfactory.nebius.com/v1/chat/completions`.
-4. **Independent critic:** validates seven-field JSON, original signal/runbook citations, exact missing-record disclosure, a source-seeking human question, and prohibition on unsupported machine instructions.
-5. **Human handoff:** presents the evidence and unanswered questions. No external equipment, dispatch, emergency system or billing action is available.
+The key difference from a generic incident summarizer is the **second evidence event**. When a new source appears, the handoff is checked again against its original asset and signal, not quietly treated as solved. A human then must choose what record to inspect or who should review the conflict.
 
-The app defaults to a deterministic **SYNTHETIC_OFFLINE_MOCK**. This replay is not real model inference.
+## Try it locally, offline and free
 
-## Requirements
-
-- Python 3.11+ (the private evaluation used Python 3.14.3).
-- Modern desktop/mobile browser.
-- For optional live inference only: your own authorized project-scoped Nebius Token Factory API key and explicit no-cash-overage review. Never put credentials in source, browser JavaScript, CLI args, public demonstration videos or Devpost text.
-- No Python third-party dependencies; all fixtures are fictional.
-
-## Run offline
-
-```bash
-python3 -m src.webapp --port 8878
-```
-
-Open `http://127.0.0.1:8878/`. Select an original scenario and click **Prepare reviewed handoff**. The UI distinguishes offline replay from genuine Token Factory inference and refuses real calls unless a separate configured gate is enabled.
-
-Run tests:
+Requires Python 3.11+ standard library, plus a modern browser. No paid infrastructure or new API key is necessary to try the synthetic demo.
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 -W error -m unittest discover -s tests -q
+python3 tools/judge_evidence_benchmark.py
+python3 -m src.webapp --port 8878
 ```
 
-The isolated Python suite passed 80 local checks, including 10 adversarial provider-envelope cases. Re-run on this release tree. Offline tests are not model reliability evidence; the separate single real application call and three observed Playground tests are reported under distinct evidence tiers.
+Open `http://127.0.0.1:8878/`.
 
-## Live inference contract (optional, after approval)
+1. Choose one of three **invented** airflow/access/network handoff incidents.
+2. Run the five-stage bounded source and runbook handoff. Offline review is explicitly labeled **SYNTHETIC REPLAY / NO NEBIUS**.
+3. Select a subsequently revealed fictional archive record: partial corroboration, conflicting monitor status, or unrelated material.
+4. Inspect the **source delta** (before/after, original-vs-new asset/signal, unresolved record, human source question, evidence ID and SHA).
+5. Choose a permitted, **human-only** record-verification action. The page produces a local browser SHA-256 integrity receipt. A changed record invalidates the previous choice. This receipt is not a verified staff identity, legal signature, equipment authorization or production incident closure.
 
-The adapter expects `NEBIUS_API_KEY` and `NEBIUS_SANDBOX_ZERO_SPEND_APPROVED=YES` in a **private server process**, never in the browser. This flag is a local technical gate **not** a server-side budget cap. Verify your actual credit balance, account auto-payment behavior and cost controls independently before enabling it.
+The old one-pass severity sorting baseline is under a collapsed optional reference section. No machinery, emergency system, remote device or payment account is connected.
 
-The runtime makes at most one authenticated request per handoff, with `max_tokens=4096`, `temperature=0`, a strict seven-field JSON schema and no silent fallback. An accepted real receipt must report HTTP 200, exactly the expected Nemotron model, finalized output and consistent token usage, and pass the independent original-source Critic. Any failure is an explicit abstention.
+## Five-stage model adapter
 
-## Evidence tiers
+The standalone Python application contains a guarded official Nebius Token Factory chat-completions adapter using the exact NVIDIA `nvidia/Nemotron-3_5-Lightning` model. It has source packet hash checking, runbook retrieval, strict seven-field JSON schema, a separate fail-closed original-source Critic v2, and mandatory human handoff. Both real and offline workflows preserve provenance.
 
-- **Local deterministic:** validates the three synthetic scenes, five stages and fail-closed browser result display.
-- **Real first-party Nebius Playground:** separate private testing yielded three source-critic-accepted outcomes on three known fictional scenarios; this is not a measured reliability rate.
-- **Application-authenticated Token Factory:** VERIFIED for **one** bounded fictional `handoff-airflow` request, HTTP 200, exact Nemotron model ID, completed `stop` response, 504 input and 1,959 output tokens, followed by independent semantic Critic PASS. Redacted, non-provider-signed local receipt: [`evidence/NEBIUS_G1_REAL_APP_RECEIPT_REDACTED.json`](evidence/NEBIUS_G1_REAL_APP_RECEIPT_REDACTED.json). This is **not** a reliability rate or a provider-issued signed certificate; public judge hosting is a separate requirement.
-- **Real operational impact:** not measured. No production safety claims.
+**Model evidence, kept in separate tiers:**
 
-## Privacy / security
+- **One genuine, authorized authenticated application-originated inference**, returned HTTP 200, exact model, completed answer, 504 input plus 1,959 output tokens, independently accepted by the Critic version active at that time. The one-use key was revoked. Redacted local receipt: [G1 run](evidence/NEBIUS_G1_REAL_APP_RECEIPT_REDACTED.json). It is a local redacted receipt, not a vendor-signed certificate.
+- **Three known real Nebius Playground fictional scenarios** separately passed source checking after iterative fixes; earlier failed provider outputs are not hidden. Two saved Playground reviews also passed the later more-specific Critic v2. This is not general model accuracy.
+- **97/97 local Python/security tests**, including source-specific critic falsification and synthetic provenance/HTTP safeguards. Source-contrast evaluation covers 9 *authored* counterfactual cases, 3 each corroborating, conflicting or irrelevant. The cases are not held out.
+- **18/18 desktop/mobile evidence reconciliation interactions** and **18/18 human-choice/local-receipt interactions** passed local browser checks on the original app. This is UI acceptance, not a user benefit study.
 
-- Original synthetic data only; no real personnel, customer, equipment or financial records.
-- Denies prompt injection and unknown evidence IDs; human approval is compulsory.
-- Local server binds to 127.0.0.1 by default. **Do not expose this local server directly to the Internet.** Any publicly hosted judge copy needs its own reviewed HTTPS, Host/Origin, rate limit and credential-budget boundary.
-- Secret-safe response envelopes do not expose token contents.
-- No model access, vendor relationship, sponsorship endorsement, certification or machine actuation is implied by naming Nebius and NVIDIA.
+The free `docs/` judge preview is generated by `tools/build_judge_site.py`, serves offline synthetic source and review records, and never uses Nebius credentials. A clickable static preview is **not** fresh model inference. Public-hosted live inference would require a separate private provider key and independently enforced billing/abuse controls; an environment flag alone is **not** a cost cap.
 
-## Public release and attribution
+## Security and limitations
 
-The original source history, internal billing notes and private governance ledger are deliberately not included in this standalone contest package. **No license rights are granted by `LICENSE.PROPOSED`.** A distribution license applies only if an authorized, verified rights holder explicitly adds the matching top-level `LICENSE` and publishes the approved clean-room source tree. The prototype is not a production safety system.
+- Original synthetic data only; no real people, customer records or telemetry.
+- Incorrect provider model ID, reasoning-only/truncated completion, missing usage metadata, fabricated citations or unsupported machine instructions cause fail-closed abstention.
+- Independent Critic v2 requires specific missing source and record-seeking questions, not fluent generic guesses.
+- External equipment connections, automatic dispatch and incident approval: **none**.
+- Neither operational impact nor general-model reliability has been measured; there is no claim of reduced accidents, faster handoff or award probability.
 
-For review, use the redacted G1 receipt and reproducible source/fixtures. The private governance ledger, full vendor account history and API keys are intentionally excluded. No fabricated user outcomes, awards or predicted win rate.
+## Publication and legal rights
+
+This is a private source candidate. `LICENSE.PROPOSED` is a **non-effective draft**; no source publication or license grant has occurred. Public release of a legally effective `LICENSE`, GitHub visibility, Pages/YouTube, and final Devpost acceptance require the exact owner/rights and release gate. No private venture source history, payment account keys, model weights or secrets are part of this repo.

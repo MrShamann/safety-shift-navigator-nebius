@@ -1,0 +1,74 @@
+{
+  "archive_truth": "ORIGINAL_SYNTHETIC_UNATTESTED",
+  "attached_record": {
+    "archive_sha256": "f5c3a440690974f99d81da91f5377be7414de2cdee4d797631111b6f2da1c426",
+    "evidence_id": "F:NET-J1",
+    "excerpt": "A fictional operator worksheet notes one heartbeat gap but does not show a verified clock offset against the original monitor.",
+    "id": "NETWORK-JOURNAL-01",
+    "signed_provider_proof": false,
+    "title": "Partial operator verification note"
+  },
+  "automatic_equipment_actions": false,
+  "decision_delta": {
+    "after": "PARTIAL_SOURCE_ADDED_HUMAN_REVIEW",
+    "automatic_closure": false,
+    "before": "MISSING_OR_UNVERIFIED_RECORD",
+    "comparison_basis": {
+      "followup_asset": "NETWORK_MONITOR",
+      "followup_reported_signal": "missing",
+      "method": "DETERMINISTIC_SYNTHETIC_ASSET_AND_SIGNAL_CONTRAST",
+      "model_inference": false,
+      "original_asset": "NETWORK_MONITOR",
+      "original_reported_signal": "missing"
+    },
+    "explanation": "A relevant but unauthenticated fictional excerpt was retrieved; the original missing source has NOT been independently verified.",
+    "new_evidence_id": "F:NET-J1",
+    "next_human_action": "check_manual",
+    "next_human_question": "Which original operator log verifies the gap and the synchronized monitoring window?",
+    "original_source_id_count": 2,
+    "relationship": "CORROBORATING",
+    "safety_action_authorized": false,
+    "unresolved": "The worksheet supports the existence of a reported gap, but the independent timing verification remains missing."
+  },
+  "external_equipment_connections": 0,
+  "first_handoff_source_hash": "bf1a21203419f4b3f21be5d08b7f81f8d041ead40ff4db26eb018c66f65e0ed3",
+  "human_approval_required": true,
+  "mode": "SYNTHETIC_EVIDENCE_RECONCILIATION_NO_NEBIUS",
+  "model_called_for_followup": false,
+  "original_review": {
+    "evidence_ids": [
+      "S:C1",
+      "S:C3"
+    ],
+    "missing_evidence": "Unverified operator record: the latest operator verification entry is unavailable.",
+    "next_action": "check_manual",
+    "question_for_human": "Which original operator log can verify the missing heartbeat interval?",
+    "reason": "The synthetic network heartbeat and operator record remain incomplete; a qualified human must inspect the original journal.",
+    "runbook_ref": "R:RB-NET-03",
+    "severity": "review"
+  },
+  "original_review_kept_intact": true,
+  "provider_api_calls": 0,
+  "provider_verified": false,
+  "real_operational_impact_proven": false,
+  "reconciliation_steps": [
+    {
+      "phase": "RETRIEVE_FICTIONAL_ARCHIVE",
+      "status": "PASS"
+    },
+    {
+      "phase": "VERIFY_SCENARIO_SOURCE_LINK",
+      "status": "PASS"
+    },
+    {
+      "phase": "COMPARE_WITH_ORIGINAL_PACKET",
+      "status": "CORROBORATING"
+    },
+    {
+      "phase": "REQUEST_HUMAN_SOURCE_VERIFICATION",
+      "status": "REQUIRED"
+    }
+  ],
+  "scenario_id": "handoff-network",
+  "source_hash_is_not_a_provider_signature": true
+}

@@ -1,0 +1,27 @@
+{
+  "archive_truth": "ORIGINAL_SYNTHETIC_UNATTESTED",
+  "mode": "SYNTHETIC_EVIDENCE_RECONCILIATION_NO_NEBIUS",
+  "notice": "Fictional archive excerpts; relevance is decided after selection.",
+  "provider_api_calls": 0,
+  "scenario_id": "handoff-access",
+  "source_options": [
+    {
+      "evidence_id": "F:ACC-J1",
+      "excerpt": "A fictional access journal export contains an amber indicator entry but omits the reader identifier and reviewer signature.",
+      "id": "ACCESS-JOURNAL-01",
+      "title": "Unsigned access journal excerpt"
+    },
+    {
+      "evidence_id": "F:ACC-C2",
+      "excerpt": "A second fictional reader display reports a green status in the same review window when the handoff describes an amber indicator.",
+      "id": "ACCESS-CONFLICT-02",
+      "title": "Conflicting reader snapshot"
+    },
+    {
+      "evidence_id": "F:ACC-U3",
+      "excerpt": "A fictional parking-card inventory lists spare badges for another building rather than any event from the affected access reader.",
+      "id": "ACCESS-UNRELATED-03",
+      "title": "Unrelated parking card inventory"
+    }
+  ]
+}

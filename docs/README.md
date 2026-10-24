@@ -1,14 +1,5 @@
-# Free offline interactive judge preview
+# Free offline judge replay
 
-This `docs/` directory is a deploy-ready static replay of the original app for a free
-GitHub Pages site (once public IP/license authorization is granted). It contains
-ONLY original synthetic fixtures and precomputed deterministic offline agent results,
-and an independently captured, redacted one-call real Nebius G1 application receipt.
+This site is a deterministic original synthetic evaluation interface, not a live model API. It displays the original five-stage evidence-first handoff and a subsequent reviewer-driven source reconciliation loop, with three contrasting source options for each of three fictional incidents, followed by a voluntary, locally hashed human source-verification decision (not a certified signature). The same clean-room Python source generates the static JSON and produces the standalone local application.
 
-The preview never calls the vendor, uses no environment variables or API key,
-and does not represent offline data as live inference. Genuine runtime integration
-was separately verified on 2026-10-24 from the local Python source, and can be
-reproduced by a reviewer using their own authorized Token Factory account and
-the root README setup guidance.
-
-External hosting, top-level source license and Devpost acceptance are independently verifiable release events; a static replay itself is not live provider inference.
+Only a separate redacted local G1 receipt demonstrates a genuine authenticated Nebius Token Factory request to NVIDIA Nemotron-3_5-Lightning. The public static site contains no key, paid endpoint or equipment API. No operational safety efficacy or general model accuracy is claimed.
