@@ -124,6 +124,32 @@ function showHandoff(result){
    handoffElement('small','', 'Human verification: '+review.question_for_human)
  );
  area.append(audit);
+ // The winning claim is inspectable evidence, not merely an ID string:
+ // expose the exact fictional source text and retrieved runbook beside each citation.
+ const knownIds=new Set(source.synthetic_signals.map(item=>item.evidence_id));
+ if(review.evidence_ids.some(id=>!knownIds.has(id)) ||
+    review.runbook_ref!==source.retrieved_runbook?.evidence_id)
+   throw Error('Source citations do not match the original packet');
+ const ledger=handoffElement('details','source-ledger');
+ ledger.append(handoffElement('summary','source-ledger-summary',
+     'Inspect cited observations and the original runbook'));
+ const rows=handoffElement('div','source-ledger-rows');
+ for(const signal of source.synthetic_signals){
+   const mark=review.evidence_ids.includes(signal.evidence_id)?'CITED':'UNCITED';
+   rows.append(handoffElement('p','source-ledger-row',
+       signal.evidence_id+' · '+mark+' · '+signal.text));
+ }
+ const runbook=source.retrieved_runbook;
+ rows.append(handoffElement('p','source-ledger-row',
+     runbook.evidence_id+' · '+runbook.title+' · FICTIONAL RUNBOOK'));
+ for(const check of runbook.checks){
+   rows.append(handoffElement('p','source-ledger-row','CHECK · '+check));
+ }
+ rows.append(handoffElement('p','source-ledger-hash',
+     'Local source SHA-256: '+source.local_source_hash+
+     ' · Integrity marker, NOT a sponsor-issued signature.'));
+ ledger.append(rows);
+ area.append(ledger);
  const t=$('handoff-trace');t.replaceChildren();
  for(const row of result.agent_steps){
    t.append(handoffElement('div','handoff-step',

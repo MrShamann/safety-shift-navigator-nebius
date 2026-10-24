@@ -103,3 +103,28 @@ cursor:pointer;line-height:1.5;font-weight:600}
 .human-review-gate #human-review-record:disabled{opacity:.48}
 #human-review-receipt{display:grid;gap:7px;margin-top:12px}
 .human-local-disclaimer{font-size:10px;line-height:1.5;color:#a7bfba;margin:10px 0 0}
+
+/* Judge can inspect the exact text behind each citation, without leaving the case. */
+.source-ledger{margin-top:14px;border:1px solid #527d78;border-radius:9px;
+ background:#102c33;overflow:hidden}
+.source-ledger-summary{padding:12px 14px;color:#bcebd4;font-size:12px;
+ font-weight:650;line-height:1.5;cursor:pointer}
+.source-ledger-summary:hover{background:#204443}
+.source-ledger-rows{display:grid;gap:7px;padding:12px 14px;
+ border-top:1px solid #385d5b}
+.source-ledger-row{font-size:12px;line-height:1.6;margin:0;color:#cfe3e1}
+.source-ledger-hash{font-size:11px;color:#9ec6be;overflow-wrap:anywhere;margin:0}
+.judge-truth-bar{padding:11px 28px;color:#bfe4e0;background:#17373c;
+ font-size:12px;line-height:1.6;border-bottom:1px solid #3a6260}
+.judge-truth-bar strong{color:#96ebc9}
+.judge-truth-bar a{color:#c3f5e4;text-decoration:underline}
+@media(max-width:580px){
+ .source-ledger-summary,.source-ledger-row{font-size:12px;line-height:1.6}
+ .source-ledger-rows{padding:11px}
+ .judge-truth-bar{font-size:12px;padding:12px 15px}
+ .handoff-intro p,.handoff-choice small,.handoff-audit small,
+ .handoff-step,.evidence-choice small,.evidence-proof-line,
+ .human-local-disclaimer{font-size:12px;line-height:1.6}
+ .handoff-step{padding:11px 9px}
+ .handoff-choice strong,.evidence-choice strong{font-size:13px}
+}
